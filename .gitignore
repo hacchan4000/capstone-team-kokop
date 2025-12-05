@@ -5,3 +5,4 @@ prometheus-*/
 *.DS_Store
 __pycache__/
 *.log
+Data/
