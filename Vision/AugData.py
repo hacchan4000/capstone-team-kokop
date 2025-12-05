@@ -7,6 +7,15 @@ import cv2
 import json
 import numpy as np
 
+for folder in ['train','test','val']:
+    for file in os.listdir(os.path.join('Data', folder, 'images')):
+        
+        filename = file.split('.')[0]+'.json'
+        existing_filepath = os.path.join('Data','labels', filename)
+        if os.path.exists(existing_filepath): 
+            new_filepath = os.path.join('Data',folder,'labels',filename)
+            os.replace(existing_filepath, new_filepath) 
+
 augmentor = alb.Compose([alb.RandomCrop(width=450, height=450), 
                          alb.HorizontalFlip(p=0.5), 
                          alb.RandomBrightnessContrast(p=0.2),
