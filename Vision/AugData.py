@@ -84,7 +84,7 @@ for partition in ['train', 'test', 'val']:
                 annotation['keypoints'] = list(np.divide(annotation['keypoints'], [450,450,450,450]))
 
 
-                with open(os.path.join('aug_data', partition, 'labels', f'{image.split(".")[0]}.{x}.json'), 'w') as f:
+                with open(os.path.join('Data', partition, 'labels', f'{image.split(".")[0]}.{x}.json'), 'w') as f:
                     json.dump(annotation, f)
 
         except Exception as e:
