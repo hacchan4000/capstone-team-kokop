@@ -6,7 +6,7 @@ import cv2
 
 
 IMAGES_PATH = 'Data'  # folder where images will be stored
-NUM_IMAGES = 80                       # how many images to capture
+NUM_IMAGES = 60                       # how many images to capture
 DELAY = 0.5                           # seconds between captures
 CAM_INDEX = 0                         # try 0, 1, or 2 if webcam fails
 
