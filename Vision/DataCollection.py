@@ -1,16 +1,15 @@
+# untuk ngambil data gambar
 import os
 import uuid
 import time
 import cv2
 
-# ----------------------------
-# CONFIG
-# ----------------------------
+
 IMAGES_PATH = os.path.join('Data')  # folder where images will be stored
 NUM_IMAGES = 20                       # how many images to capture
 DELAY = 0.5                           # seconds between captures
 CAM_INDEX = 0                         # try 0, 1, or 2 if webcam fails
-# ----------------------------
+
 
 # Create directory if it doesn't exist
 os.makedirs(IMAGES_PATH, exist_ok=True)
