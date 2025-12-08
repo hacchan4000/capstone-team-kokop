@@ -140,7 +140,7 @@ def augment_dataset():
                             annot["keypoints"][3] = augmented["keypoints"][idx][1]
 
                     # Normalize new keypoints by 450×450
-                    annot["keypoints"] = list(np.divide(annot["keypoints"], [450, 450, 450, 450]))
+                    annot["keypoints"] = list(np.divide(annot["keypoints"], [450, 450, 450, 450])) #kemungkinan diubah nanti
 
                     # Save annotation JSON
                     save_json = os.path.join("aug_Data", split, "labels", f"{img_name.split('.')[0]}.{i}.json")
