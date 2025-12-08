@@ -112,7 +112,7 @@ def augment_dataset():
             H, W = img.shape[:2]
             norm_coords = list(np.divide(coords, [W, H, W, H]))
 
-            for i in range(120):  # generate 120 augmentations
+            for i in range(40):  # generate 120 augmentations
                 try:
                     keypoints = [left, right]
                     augmented = augmentor(image=img, keypoints=keypoints, class_labels=["LeftEye", "RightEye"])

@@ -1,0 +1,7 @@
+numpy<2
+tensorflow==2.11
+opencv-python
+albumentations
+matplotlib
+json5
+pillow
