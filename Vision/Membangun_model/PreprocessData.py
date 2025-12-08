@@ -23,14 +23,14 @@ test_images = test_images.map(loadGambarku)
 val_images = val_images.map(loadGambarku)
 
 #resize ukuran gambar pake lambda function spy consise
-train_images = train_images(lambda img: tf.image.resize(img,(250,250))) # ngubah dimensi supaya lebih gampang dimasukin model
-test_images = test_images(lambda img: tf.image.resize(img,(250,250)))
-val_images = val_images(lambda img: tf.image.resize(img,(250,250)))
+train_images = train_images.map(lambda x: tf.image.resize(x,(250,250))) # ngubah dimensi supaya lebih gampang dimasukin model
+test_images = test_images.map(lambda x: tf.image.resize(x,(250,250)))
+val_images = val_images.map(lambda x: tf.image.resize(x,(250,250)))
 
 #normalisasi gambar
-train_images = train_images(lambda img: img/255) #ubahh tiap nilai intensitas piksel di gambar jd rentang 0~1
-test_images = test_images(lambda img: img/255)
-val_images = val_images(lambda img: img/255)
+train_images = train_images.map(lambda img: img/255) #ubahh tiap nilai intensitas piksel di gambar jd rentang 0~1
+test_images = test_images.map(lambda img: img/255)
+val_images = val_images.map(lambda img: img/255)
 
 
 
@@ -72,20 +72,24 @@ train = train.prefetch(4)
 test = test.prefetch(4)
 val = val.prefetch(4)
 
+
 #liat sample
 
-data_sample = train.as_numpy_iterator()
-hasil = data_sample.next()
+data_samples = train.as_numpy_iterator()
+res = data_samples.next()
+fig, ax = plt.subplots(ncols=4, figsize=(20,20))
 
-cols = 4
-fig, ax = plt.subplots(ncols=cols, figsize=(20,20))
-for i in range(cols):
-    img_sample = hasil[0][i]
-    koordinat_sample = hasil[1][0][i]
+for idx in range(4): 
+    sample_image = res[0][idx].copy()   # IMPORTANT: make it writeable
+    sample_coords = res[1][0][idx]
+
+    # draw keypoints
+    cv2.circle(sample_image, tuple(np.multiply(sample_coords[2:], [250,250]).astype(int)), 5, (0,255,0), -1)
+    cv2.circle(sample_image, tuple(np.multiply(sample_coords[:2], [250,250]).astype(int)), 5, (255,0,0), -1)
+
+    ax[idx].imshow(sample_image)
+    ax[idx].axis("off")
+
     
-    #ngegambar lingkaran untuk masing-masing mata
-    cv2.circle(img_sample, tuple(np.multiply(koordinat_sample[:2], [250,250]).astype(int)), 2, (255,0,0), -1)#mata kiri
-    cv2.circle(img_sample, tuple(np.multiply(koordinat_sample[2:], [250,250]).astype(int)), 2, (0,255,0), -1)#mata kanan
-    
-    ax[i].imshow(img_sample)
+print("Preprocess almost data completed")
 

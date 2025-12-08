@@ -11,13 +11,16 @@ from keras.models import Sequential
 from keras.layers import Input, Conv2D, Reshape, Dropout
 from keras.applications import ResNet152V2
 
-mlflow.set_experiment("Iris_Tracking")
+
 mlflow.set_tracking_uri("http://127.0.0.1:5000/")
+mlflow.set_experiment("Iris_Tracking")
+mlflow.autolog()
 
 layer1 = Sequential([ #layer input gambar
     Input(shape=(250,250,3)),
-    ResNet152V2(include_top=False, input_shape=(250,250,3))
+    ResNet152V2(include_top=False, weights=None, input_shape=(250,250,3))
 ])
+layer1.trainable = False  # freeze backbone
 layer2 = Sequential([ #layer hidden model
     Conv2D(256, 3, padding='same', activation='relu'),
     Conv2D(256, 3, padding='same', activation='relu'),
@@ -26,7 +29,7 @@ layer2 = Sequential([ #layer hidden model
 ])
 layer3 = Sequential([ #layer output
     Dropout(0.05),
-    Conv2D(4,2,2),
+    Conv2D(4, 1, activation=None),
     Reshape((4,))
 ])
 
@@ -42,10 +45,10 @@ model.summary()
 
 #setup loss function dan optimizer
 
-optimizer = tf.keras.optimizer.Adam(learning_rate=0.001, decay=0.0007)
+optimizer = tf.keras.optimizers.Adam(learning_rate=0.001, decay=0.0007)
 loss = tf.keras.losses.MeanSquaredError()
 
-model.compile(optimizer,loss)
+model.compile(optimizer=optimizer,loss=loss)
 
 #TRAIN
 hist = model.fit(train, epochs=15, validation_data=val)
