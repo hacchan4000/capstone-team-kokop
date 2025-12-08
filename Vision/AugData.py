@@ -1,8 +1,6 @@
 
 import albumentations as alb
 import os
-import uuid
-import time
 import cv2
 import json
 import numpy as np
