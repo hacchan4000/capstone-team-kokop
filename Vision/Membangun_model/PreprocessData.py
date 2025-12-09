@@ -75,21 +75,8 @@ val = val.prefetch(4)
 
 #liat sample
 
-data_samples = train.as_numpy_iterator()
-res = data_samples.next()
-fig, ax = plt.subplots(ncols=4, figsize=(20,20))
 
-for idx in range(4): 
-    sample_image = res[0][idx].copy()   # IMPORTANT: make it writeable
-    sample_coords = res[1][0][idx]
-
-    # draw keypoints
-    cv2.circle(sample_image, tuple(np.multiply(sample_coords[2:], [250,250]).astype(int)), 5, (0,255,0), -1)
-    cv2.circle(sample_image, tuple(np.multiply(sample_coords[:2], [250,250]).astype(int)), 5, (255,0,0), -1)
-
-    ax[idx].imshow(sample_image)
-    ax[idx].axis("off")
 
     
-print("Preprocess almost data completed")
+print("Preprocess data completed")
 
