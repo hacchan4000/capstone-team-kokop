@@ -8,8 +8,3 @@ __pycache__/
 Data/
 aug_Data/
 .DS_Store/
-*.h5
-mlartifacts/
-models/
-artifacts/
-.DS_Store/

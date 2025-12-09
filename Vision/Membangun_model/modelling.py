@@ -53,7 +53,7 @@ loss = tf.keras.losses.MeanSquaredError()
 model.compile(optimizer=optimizer, loss=loss)
 
 # ---- Train ----
-hist = model.fit(train, epochs=25, validation_data=val)
+hist = model.fit(train, epochs=15, validation_data=val)
 
 # ---- Save & reload ----
 model.save("EyeTrackerModel.h5")
