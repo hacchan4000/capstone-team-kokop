@@ -1,8 +1,14 @@
-
+import os
+import mlflow
 import cv2
 import numpy as np
 
 model = 'EyeTrackingModel.h5'
+
+def load_model(model_path):
+    pass
+       
+model = load_model('') 
 
 cap = cv2.VideoCapture(0)
 while cap.isOpened():
@@ -24,3 +30,20 @@ while cap.isOpened():
         break
 cap.release()
 cv2.destroyAllWindows()
+
+ratio = 100
+
+myModel = 'EyeTrackerModel.h5'
+
+def arah():
+    direction = ''
+    if ratio <= 0.35 :
+        direction = "kiri"
+    elif 0.35 <= ratio and ratio <= 0.65:
+        direction = "tengah"
+    else:
+        direction="kanan"
+    return direction
+    
+def start_clock():
+    pass
