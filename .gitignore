@@ -12,3 +12,4 @@ aug_Data/
 mlartifacts/
 models/
 artifacts/
+.DS_Store/

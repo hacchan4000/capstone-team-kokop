@@ -32,6 +32,15 @@ train_images = train_images.map(lambda img: img/255) #ubahh tiap nilai intensita
 test_images = test_images.map(lambda img: img/255)
 val_images = val_images.map(lambda img: img/255)
 
+train_images = train_images.map(lambda img: tf.image.resize(img,(250,250))) # ngubah dimensi supaya lebih gampang dimasukin model
+test_images = test_images.map(lambda img: tf.image.resize(img,(250,250)))
+val_images = val_images.map(lambda img: tf.image.resize(img,(250,250)))
+
+#normalisasi gambar
+train_images = train_images.map(lambda img: img/255) #ubahh tiap nilai intensitas piksel di gambar jd rentang 0~1
+test_images = test_images.map(lambda img: img/255)
+val_images = val_images.map(lambda img: img/255)
+
 
 
 """ Prepare Labels """
@@ -73,10 +82,10 @@ test = test.prefetch(4)
 val = val.prefetch(4)
 
 
+
 #liat sample
 
 
 
     
 print("Preprocess data completed")
-
