@@ -1,13 +1,17 @@
 import mlflow
 import mlflow.keras
 from keras.models import load_model
+import numpy as np
 
-model_path = "/Users/mac/Desktop/CAPSTONE/capstone-team-kokop/EyeTrackerModel.h5"
+mlflow.set_tracking_uri("http://127.0.0.1:5000/")
+mlflow.set_experiment("Iris_Tracking")
 
-# Load Keras model
-model = load_model(model_path)
+model = load_model("/Users/mac/Desktop/CAPSTONE/capstone-team-kokop/EyeTrackerModel.h5")
 
-# Log to MLflow as a Keras model
-with mlflow.start_run():
-    mlflow.keras.log_model(model, "model")
-    print("Model successfully logged!")
+with mlflow.start_run(run_name="iri_tracker_manual"):
+    mlflow.keras.log_model(
+        model,
+        artifact_path="model",
+        input_example=np.zeros((1,250,250,3)),
+        registered_model_name=None
+    )
