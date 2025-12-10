@@ -5,3 +5,7 @@ albumentations
 matplotlib
 json5
 pillow
+mlflow==3.1.4
+cloudpickle==3.1.2
+numpy==1.23.5
+tensorflow==2.12.0

@@ -8,7 +8,7 @@ mlflow.set_experiment("Iris_Tracking")
 
 model = load_model("/Users/mac/Desktop/CAPSTONE/capstone-team-kokop/EyeTrackerModel.h5")
 
-with mlflow.start_run(run_name="iri_tracker_manual"):
+with mlflow.start_run(run_name="iris_tracker_manual"):
     mlflow.keras.log_model(
         model,
         artifact_path="model",
