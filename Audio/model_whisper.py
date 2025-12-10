@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 import whisper
 
+
 AUDIO_DIR = "audio"
 TRANSCRIPT_DIR = "transcript"
 

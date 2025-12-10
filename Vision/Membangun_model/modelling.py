@@ -6,7 +6,7 @@ from keras.models import Sequential, load_model
 from keras.layers import Input, Conv2D, Reshape, Dropout
 from keras.applications import ResNet152V2
 
-from PreprocessData import train, test, val
+from Vision.PreprocessData import train, test, val
 
 # ---- MLflow configuration ----
 mlflow.set_tracking_uri("http://127.0.0.1:5000/")
