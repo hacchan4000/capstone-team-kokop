@@ -12,3 +12,4 @@ aug_Data/
 mlartifacts/
 models/
 artifacts/
+served_model/
