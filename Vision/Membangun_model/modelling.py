@@ -58,3 +58,5 @@ hist = model.fit(train, epochs=25, validation_data=val)
 # ---- Save & reload ----
 model.save("EyeTrackerModel.h5")
 model = load_model("EyeTrackerModel.h5")
+
+print("modelling selesai")
