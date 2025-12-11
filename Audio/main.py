@@ -4,12 +4,13 @@ import whisper
 import tempfile
 import uvicorn
 
+
 from fastapi import FastAPI, UploadFile, File
 
 app = FastAPI()
 myModel = whisper.load_model("large-v3")
 
-@app.post("/transcribe")
+@app.post("/analyze-audio")
 async def transcribe(file: UploadFile = File(...)):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
         tmp.write(await file.read())
