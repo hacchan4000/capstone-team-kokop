@@ -13,4 +13,6 @@ mlartifacts/
 models/
 artifacts/
 served_model/
-.env/
+
+.env*.local
+.env
