@@ -11,6 +11,9 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from keras.models import load_model
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # ---- CONFIG ----
 MODEL_PATH = "/Users/mac/Desktop/CAPSTONE/capstone-team-kokop/EyeTrackerModel.h5"
 MODEL = load_model(MODEL_PATH)
