@@ -7,7 +7,7 @@ import uvicorn
 
 from fastapi import FastAPI, UploadFile, File
 
-app = FastAPI()
+app = FastAPI(title="Audio_analyzer")
 myModel = whisper.load_model("large-v3")
 
 @app.post("/analyze-audio")
