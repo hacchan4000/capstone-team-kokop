@@ -1,0 +1,29 @@
+{
+  "video": "/Users/mac/Desktop/interview_question_1.mp4",
+  "video_stem": "interview_question_1",
+  "speakers_detected": 1,
+  "segments": [],
+  "transcript": "Share any specific challenges you faced while working on certification and how you overcome them Actually, for the challenges, there are some challenges when I took the certification Especially for the project I mentioned that I already working with it The first one is actually to meet the specific accuracy or violation laws for the evaluation matrix And actually that just need to be done Yeah, that just need to be done And also to take some trial and error with different architecture For example, we can try to add more layer, more neurons, changes the neurons Or even I also apply the dropout layer So it really helps with the validation laws To become more lower And yeah, I think that's one of the biggest challenges that I have while working on this certification",
+  "merged_transcript": [
+    {
+      "speaker": "SPEAKER_00",
+      "text": "Share any specific challenges you faced while working on certification and how you overcome them Actually, for the challenges, there are some challenges when I took the certification Especially for the project I mentioned that I already working with it The first one is actually to meet the specific accuracy or violation laws for the evaluation matrix And actually that just need to be done Yeah, that just need to be done And also to take some trial and error with different architecture For example, we can try to add more layer, more neurons, changes the neurons Or even I also apply the dropout layer So it really helps with the validation laws To become more lower And yeah, I think that's one of the biggest challenges that I have while working on this certification"
+    }
+  ],
+  "nlp_metrics": {
+    "word_count": 136,
+    "unique_words": 76,
+    "lexical_diversity": 0.559,
+    "speech_rate_wpm": 87.72,
+    "sentence_count": 1,
+    "average_sentence_length": 135.0,
+    "filler_words_count": 8,
+    "repetition_count": 0,
+    "pause_estimation_count": 0
+  },
+  "audio_metrics": {
+    "duration_seconds": 93.02,
+    "audio_path": "/var/folders/zd/w8_wfbzs0qz025zdx4nn8y6m0000gn/T/pipeline_tmp_r2iivj0p/interview_question_1.wav"
+  },
+  "generated_at": "2025-12-13T07:26:50.915338Z"
+}
